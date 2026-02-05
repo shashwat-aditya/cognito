@@ -1,0 +1,29 @@
+name: Auto PR from branch
+
+on:
+  push:
+    branches-ignore:
+      - main
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  pr:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Create PR if not exists
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr view "${{ github.ref_name }}" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1 || \
+          gh pr create \
+            --base main \
+            --head "${{ github.ref_name }}" \
+            --title "Auto PR: ${{ github.ref_name }} → main" \
+            --body "Auto-created PR"
