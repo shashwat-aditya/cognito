@@ -36,6 +36,7 @@ Instantly generate public preview links to share your workflows.
 - **Lead Capture**: Collect emails anonymously and view their entire journey history.
 - **Performance Tracking**: Monitor **Total Visits**, **Lead Conversion**, and **Completion Rates** per version in real-time.
 
+
 ---
 
 ## 🛠️ The Technology Stack
