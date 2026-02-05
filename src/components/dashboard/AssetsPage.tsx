@@ -6,6 +6,7 @@ import { getUploadUrl, updateAssetUrl, deleteAsset } from "@/lib/actions/assets"
 import { Loader2, Upload, X, Trash2, CheckCircle2, AlertCircle, Image as ImageIcon } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ConfirmDialog } from "./ConfirmDialog";
+import Image from "next/image";
 
 interface AssetsPageProps {
   projectId: string;
@@ -161,7 +162,7 @@ const AssetSlot: React.FC<AssetSlotProps> = ({ label, description, assetType, cu
           </div>
         ) : preview ? (
           <>
-            <img src={preview} alt={label} className="w-full h-full object-cover" />
+            <Image src={preview} alt={label} className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all cursor-pointer flex items-center justify-center opacity-0 group-hover:opacity-100">
                <label className="cursor-pointer bg-white/10 backdrop-blur-md border border-white/20 text-white px-4 py-2 rounded-xl text-xs font-bold hover:bg-white/20 transition-all">
                   Replace Image
