@@ -4,7 +4,10 @@ on:
   push:
     branches-ignore:
       - main
+<<<<<<< HEAD
       - development
+=======
+>>>>>>> 4521221 (base)
 
 permissions:
   contents: read
@@ -27,4 +30,8 @@ jobs:
             --base main \
             --head "${{ github.ref_name }}" \
             --title "Auto PR: ${{ github.ref_name }} → main" \
+<<<<<<< HEAD
             --body "Auto-created PR"
+=======
+            --body "Auto-created PR"
+>>>>>>> 4521221 (base)
