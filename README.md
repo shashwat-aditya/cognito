@@ -31,8 +31,11 @@ Every Cognito workflow feels premium by default. Our theming engine supports:
 - **Micro-animations**: Powered by Framer Motion for a fluid, "living" interface.
 - **Dynamic Branding**: Inject custom colors, fonts, and assets to match your brand identity.
 
-### 🔓 Public Links & Lead Capture
-Instantly generate public preview links to share your workflows. Collect leads anonymously and view their entire journey history in your dashboard.
+### 🔓 Public Links & Visitor Analytics
+Instantly generate public preview links to share your workflows. 
+- **Lead Capture**: Collect emails anonymously and view their entire journey history.
+- **Performance Tracking**: Monitor **Total Visits**, **Lead Conversion**, and **Completion Rates** per version in real-time.
+
 
 ---
 
@@ -43,7 +46,7 @@ Cognito is built with a focus on speed, scalability, and developer experience:
 | Layer | Technology |
 | :--- | :--- |
 | **Framework** | [Next.js 15+](https://nextjs.org) (App Router, Server Actions) |
-| **AI Intelligence** | [Google Gemini 1.5 Pro/Flash](https://ai.google.dev/) |
+| **AI Intelligence** | [Google Gemini 2.5 Flash](https://ai.google.dev/) |
 | **Database Architecture** | [PostgreSQL](https://www.postgresql.org/) with [Drizzle ORM](https://orm.drizzle.team/) |
 | **Authentication** | [Clerk](https://clerk.com/) (Enterprise-grade Identity) |
 | **Visual Core** | [XYFlow (React Flow)](https://reactflow.dev/) & [Framer Motion](https://www.framer.com/motion/) |
@@ -57,7 +60,7 @@ Quickly spin up your own instance of Cognito:
 
 1. **Clone & Install**:
    ```bash
-   git clone https://github.com/Suramyavns/Cognito.git
+   git clone https://github.com/shashwat-aditya/cognito.git
    cd Cognito
    npm install
    ```

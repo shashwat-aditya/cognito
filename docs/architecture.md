@@ -28,8 +28,8 @@ erDiagram
     GRAPH_VERSION ||--o{ USER_JOURNEY : captures
 ```
 
-- **GraphVersions**: Ensures that changes to a live workflow don't break existing public links.
-- **UserJourneys**: Captures a full transcript, captured variables, and the final AI report for every visitor.
+- **GraphVersions**: Ensures that changes to a live workflow don't break existing public links. Tracks **visitCount** to provide real-time engagement metrics.
+- **UserJourneys**: Captures a full transcript, captured variables, and the final AI report for every visitor. Used alongside version visits to calculate **conversion rates**.
 
 ## 🤖 AI Integration Strategy
 
@@ -43,7 +43,7 @@ Cognito utilizes a "Multi-Prompting" strategy to separate concerns between diffe
 | **Interaction** | Interactive | Generates chat text + UI buttons in a single LLM pass. |
 | **Evaluation** | Logic | Analyzes conversation completion and identifies the next node key. |
 | **Summarization** | Synthesis | Generates structured reports from history and form data. |
-| **Visuals** | Generative | Create SVG animations for project-specific loading states. |
+| **Storage** | Asset Mgmt | Handles multi-part uploads to GCS for project branding. |
 
 ## 🎨 UI & Aesthetics
 

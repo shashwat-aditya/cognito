@@ -30,6 +30,10 @@ NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_...
 CLERK_SECRET_KEY=sk_test_...
 NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
 NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
+
+# ☁️ Google Cloud Storage (for assets)
+GCS_BUCKET_NAME=your_bucket_name
+GOOGLE_APPLICATION_CREDENTIALS=path/to/key.json
 ```
 
 > [!TIP]
@@ -55,8 +59,29 @@ Follow these steps to get the application running:
    npm run dev
    ```
 
-4. **Verify Session**:
-   Navigate to `http://localhost:3000` and sign in using Clerk to access the dashboard.
+4. **Restart Server**:
+   Ensure environment variables are picked up by rerunning `npm run dev`.
+
+## ☁️ Google Cloud Storage Setup
+
+To enable asset uploads (logos, splash screens), you need a GCS bucket:
+
+1.  **Create Bucket**: In Google Cloud Console, create a new storage bucket.
+2.  **CORS Configuration**: Assets are uploaded directly from the browser to GCS. You **must** set a CORS policy on your bucket. Use `gsutil` or the console to set:
+    ```json
+    [
+      {
+        "origin": ["http://localhost:3000", "https://your-domain.com"],
+        "method": ["GET", "PUT", "POST", "DELETE", "OPTIONS"],
+        "responseHeader": ["Content-Type", "x-goog-resumable"],
+        "maxAgeSeconds": 3600
+      }
+    ]
+    ```
+3.  **Service Account**: Create a Service Account with `Storage Object Admin` permissions.
+4.  **Credentials**: 
+    - Copy the contents of the generated JSON key file into `GCP_SERVICE_ACCOUNT` variable in `.env.local`.
+    - Alternatively, save the file locally and set `GOOGLE_APPLICATION_CREDENTIALS=path/to/key.json`.
 
 ## 🚀 Deployment
 
