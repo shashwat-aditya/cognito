@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "storage.googleapis.com",
         port: "",
-        pathname: "/cognito-assets/**",
+        pathname: "/cognito_assets/**",
       },
     ],
   },
