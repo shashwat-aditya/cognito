@@ -7,11 +7,7 @@ import { auth } from "@clerk/nextjs/server";
 import { revalidatePath } from "next/cache";
 import { Storage } from "@google-cloud/storage";
 
-const storage = new Storage(
-  process.env.GCP_SERVICE_ACCOUNT 
-    ? { credentials: JSON.parse(process.env.GCP_SERVICE_ACCOUNT) }
-    : undefined
-);
+const storage = new Storage();
 const BUCKET_NAME = process.env.GCS_BUCKET_NAME;
 
 export async function getUploadUrl(projectId: string, fileName: string, contentType: string) {
