@@ -1,7 +1,7 @@
 steps:
   # Build the container image
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', '$_AR_HOSTNAME/$PROJECT_ID/cloud-run-source-deploy/$REPO_NAME/$_SERVICE_NAME:$COMMIT_SHA', '.']
+    args: ['build', '-t', '$_AR_HOSTNAME/$PROJECT_ID/cloud-run-source-deploy/$REPO_NAME/$_SERVICE_NAME:$COMMIT_SHA', '--build-arg', 'DATABASE_URL=$_DATABASE_URL', '.']
 
   # Push the container image to Artifact Registry
   - name: 'gcr.io/cloud-builders/docker'
@@ -30,6 +30,7 @@ substitutions:
   _DEPLOY_REGION: us-central1
   _SERVICE_NAME: cognito
   REPO_NAME: cognito
+  _DATABASE_URL: "your-connection-string"
 
 options:
   substitution_option: 'ALLOW_LOOSE'

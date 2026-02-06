@@ -21,6 +21,10 @@ COPY . .
 # Note: We don't pass build-time env vars here as this app uses Server Components/Actions 
 # and can read runtime env vars. If you have static generation that needs env vars,
 # you would need to add them here using ARG/ENV.
+# Add this before the 'RUN npm run build' or 'RUN next build' line
+ARG DATABASE_URL
+ENV DATABASE_URL=$DATABASE_URL
+
 RUN npm run build
 
 # Stage 3: Runner
