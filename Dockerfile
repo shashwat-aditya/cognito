@@ -9,12 +9,11 @@ RUN npm ci
 FROM node:20-alpine AS builder
 WORKDIR /app
 
-# --- MOVE THESE TO THE TOP OF THE STAGE ---
 ARG DATABASE_URL
-ENV DATABASE_URL=$DATABASE_URL
+ARG NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
 
-# Debug to verify it exists before building
-RUN echo "Checking DATABASE_URL length: ${#DATABASE_URL}"
+ENV DATABASE_URL=$DATABASE_URL
+ENV NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=$NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
 
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
