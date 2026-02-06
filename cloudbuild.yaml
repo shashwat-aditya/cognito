@@ -30,7 +30,6 @@ substitutions:
   _DEPLOY_REGION: us-central1
   _SERVICE_NAME: cognito
   REPO_NAME: cognito
-  _DATABASE_URL: "your-connection-string"
 
 options:
   substitution_option: 'ALLOW_LOOSE'

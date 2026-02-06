@@ -25,6 +25,8 @@ COPY . .
 ARG DATABASE_URL
 ENV DATABASE_URL=$DATABASE_URL
 
+RUN echo "Checking DATABASE_URL length: ${#DATABASE_URL}"
+
 RUN npm run build
 
 # Stage 3: Runner
